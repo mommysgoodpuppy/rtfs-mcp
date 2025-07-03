@@ -1,0 +1,11 @@
+docsdata/
+node_modules/
+build/
+
+# Configuration files (sensitive)
+config.json
+repodata.json
+
+# Templates are tracked
+!config.template.json
+!repodata.template.json
