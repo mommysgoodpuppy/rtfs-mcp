@@ -1,0 +1,66 @@
+{
+  "name": "mcp-docs-server-extension",
+  "displayName": "MCP Documentation Server",
+  "description": "VS Code extension that provides MCP Documentation Server for comprehensive documentation and source code exploration",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "AI",
+    "Other"
+  ],
+  "keywords": [
+    "mcp",
+    "documentation",
+    "model-context-protocol",
+    "drei",
+    "fiber",
+    "zod"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "mcpDocsServerProvider",
+        "label": "MCP Documentation Server Provider"
+      }
+    ],
+    "commands": [
+      {
+        "command": "mcpDocsServer.build",
+        "title": "Show Server Info",
+        "category": "MCP Docs Server"
+      },
+      {
+        "command": "mcpDocsServer.createConfig",
+        "title": "Create Config",
+        "category": "MCP Docs Server"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "scripts": {
+    "vscode:prepublish": "npm run copy-server && npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "copy-server": "npx rimraf src/server && npx cpx \"../src/**/*\" src/server && npx cpx \"../config.template.json\" src/server && npx cpx \"../repodata.template.json\" src/server && npx cpx \"../docsdata/**/*\" src/server/docsdata",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.96.0",
+    "@types/node": "20.x",
+    "@types/fs-extra": "^11.0.4",
+    "typescript": "^5.6.2",
+    "cpx": "^1.5.0",
+    "rimraf": "^6.0.1"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.3",
+    "fs-extra": "^11.3.0",
+    "zod": "^3.25.71"
+  }
+}

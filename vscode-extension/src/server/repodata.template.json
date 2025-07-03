@@ -1,0 +1,60 @@
+{
+  "example-library": {
+    "name": "Example Library",
+    "description": "An example library configuration",
+    "github": "https://github.com/owner/repo",
+    "repo": "owner/repo",
+    "mainBranch": "main",
+    "srcPaths": [
+      "src",
+      "packages/core/src"
+    ],
+    "examplePaths": [
+      "examples",
+      "demo",
+      "packages/examples"
+    ],
+    "docs": {
+      "repo": "owner/repo",
+      "branch": "main",
+      "paths": [
+        "docs",
+        "documentation"
+      ]
+    }
+  },
+  "separate-docs-example": {
+    "name": "Library with Separate Docs",
+    "description": "Example of a library with documentation in a different repository",
+    "github": "https://github.com/owner/main-repo",
+    "repo": "owner/main-repo",
+    "mainBranch": "main",
+    "srcPaths": [
+      "src"
+    ],
+    "examplePaths": [
+      "examples"
+    ],
+    "docs": {
+      "repo": "owner/docs-repo",
+      "branch": "main",
+      "paths": [
+        "guides",
+        "api-reference"
+      ]
+    }
+  },
+  "simple-library": {
+    "name": "Simple Library",
+    "description": "A simple library with just source code (no separate docs)",
+    "github": "https://github.com/owner/simple-lib",
+    "repo": "owner/simple-lib",
+    "mainBranch": "master",
+    "srcPaths": [
+      "lib"
+    ],
+    "examplePaths": [
+      "test/fixtures"
+    ]
+  }
+}

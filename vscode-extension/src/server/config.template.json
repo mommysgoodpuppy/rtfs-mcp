@@ -1,0 +1,13 @@
+{
+  "github": {
+    "apiKey": "",
+    "rateLimit": {
+      "unauthenticated": 60,
+      "authenticated": 5000
+    }
+  },
+  "cache": {
+    "enabled": true,
+    "ttlMinutes": 10
+  }
+}
