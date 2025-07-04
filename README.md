@@ -28,7 +28,7 @@ and source code exploration tools for different libraries and repositories.
 1. **Clone and install:**
    ```bash
    git clone <repository-url>
-   cd mcpPMNDRS
+   cd rtfs-mcp
    npm install
    ```
 
