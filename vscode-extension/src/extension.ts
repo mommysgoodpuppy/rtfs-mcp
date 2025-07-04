@@ -16,8 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
         const serverPath = path.join(
           context.extensionPath,
           "out",
-          "server",
-          "index.js",
+          "server.js",
         );
 
         if (fs.existsSync(serverPath)) {
@@ -32,7 +31,6 @@ export function activate(context: vscode.ExtensionContext) {
                 MCP_SERVER_BASE_PATH: path.join(
                   context.extensionPath,
                   "out",
-                  "server",
                 ),
               },
               "1.0.0",
@@ -51,8 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
           const serverPath = path.join(
             context.extensionPath,
             "out",
-            "server",
-            "index.js",
+            "server.js",
           );
 
           if (!fs.existsSync(serverPath)) {

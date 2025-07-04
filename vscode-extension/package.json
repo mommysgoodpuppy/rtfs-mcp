@@ -44,10 +44,12 @@
     "onStartupFinished"
   ],
   "scripts": {
-    "vscode:prepublish": "npm run copy-server && npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "copy-server": "npx rimraf src/server && npx cpx \"../src/**/*\" src/server && npx cpx \"../config.template.json\" src/server && npx cpx \"../repodata.template.json\" src/server && npx cpx \"../docsdata/**/*\" src/server/docsdata",
+    "vscode:prepublish": "npm run build",
+    "build": "npm run build:extension && npm run build:server && npm run copy:assets",
+    "build:extension": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "build:server": "node build-server.js",
+    "copy:assets": "npx cpx \"../docsdata/**/*\" out/docsdata && npx cpx \"../config.template.json\" out && npx cpx \"../repodata.template.json\" out",
+    "watch": "npm run build:extension -- --watch",
     "package": "vsce package"
   },
   "devDependencies": {
@@ -55,8 +57,8 @@
     "@types/node": "20.x",
     "@types/fs-extra": "^11.0.4",
     "typescript": "^5.6.2",
-    "cpx": "^1.5.0",
-    "rimraf": "^6.0.1"
+    "esbuild": "^0.24.0",
+    "cpx": "^1.5.0"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.13.3",

@@ -6,5 +6,5 @@ src/**
 tsconfig.json
 .eslintrc.json
 **/*.ts
-src/server
 node_modules/**
+!out/**
